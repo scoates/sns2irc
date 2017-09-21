@@ -1,0 +1,24 @@
+{
+    "live": {
+        "apigateway_enabled": false,
+        "events": [
+            {
+                "function": "sns2irc.sns2irc",
+                "event_source": {
+                    "arn":  "arn:aws:sns:us-east-1:DOTHIS:DOTHIS",
+                    "events": [
+                        "sns:Publish"
+                    ]
+                }
+            },
+        ],
+        "environment_variables": {
+            "IRC_NICK": "dothis",
+            "IRC_HOST": "dothis",
+            "IRC_PORT": "dothis",
+            "IRC_SSL": "True or False",
+            "IRC_CHAN": "dothis",
+            "IRC_PASS": "dothis",
+        },
+    }
+}
