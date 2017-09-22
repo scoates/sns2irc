@@ -1,9 +1,12 @@
 import boto3
 import hjson
 import sys
+import os
 
-config = hjson.load(open("zappa_settings.json"))
-topic = config["live"]["events"][0]["event_source"]["arn"]
+topic = os.environ.get('SNS2IRC_TOPIC', None)
+if topic is None:
+    config = hjson.load(open("zappa_settings.json"))
+    topic = config["live"]["events"][0]["event_source"]["arn"]
 
 client = boto3.client('sns')
 
